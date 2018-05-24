@@ -6,6 +6,9 @@ import {enableProdMode} from '@angular/core';
 import * as express from 'express';
 import {join} from 'path';
 
+//import Body-Parser
+import * as bodyParser from 'body-parser';
+
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
 
@@ -45,6 +48,11 @@ app.get('*.*', express.static(join(DIST_FOLDER, 'browser')));
 app.get('*', (req, res) => {
   res.render('index', {req});
 });
+
+// Set up body-Parser
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
 
 // Start up the Node server
 app.listen(PORT, () => {
