@@ -6,8 +6,15 @@ import {enableProdMode} from '@angular/core';
 import * as express from 'express';
 import {join} from 'path';
 
+import * as mongoose from 'mongoose';
+
 //import Body-Parser
 import * as bodyParser from 'body-parser';
+
+//mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://hoaikhan:123456@ds016298.mlab.com:16298/bonmuagio', () => {
+  console.log('sussess!');
+});
 
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
@@ -43,6 +50,7 @@ app.get('/api/*', (req, res) => {
 
 // Server static files from /browser
 app.get('*.*', express.static(join(DIST_FOLDER, 'browser')));
+app.get('*.*', express.static(join(DIST_FOLDER, 'server')));
 
 // All regular routes use the Universal engine
 app.get('*', (req, res) => {

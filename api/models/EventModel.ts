@@ -3,9 +3,9 @@ import * as mongoose from 'mongoose';
 // declare schema
 const Schema = mongoose.Schema;
 
-// declare seperatedWork
+// declare separated Work
 
-const SeperatedWorkSchema = new Schema({
+const SeparatedWorkSchema = new Schema({
   title: {
     type: String,
     required: true
@@ -42,7 +42,7 @@ const PostSchema = new Schema({
 });
 // declare a EventSchema
 
-const EventShema = new Schema({
+const EventSchema = new Schema({
   name: {
     type: String,
     required: true
@@ -72,11 +72,12 @@ const EventShema = new Schema({
   cost: {
     type: Number,
     required: true
-  }
+  },
+  works: [SeparatedWorkSchema]
 });
 
 // define Event model
 
-const EventModel = mongoose.model('event',EventShema);
+const EventModel = mongoose.model('event', EventSchema);
 
 module.exports = EventModel;
