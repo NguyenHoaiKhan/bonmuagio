@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 
 import { PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { HomeComponent } from './components/home/home.component';
+import { TopbarComponent } from './components/topbar/topbar.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    TopbarComponent
   ],
   imports: [
     AppRoutingModule,

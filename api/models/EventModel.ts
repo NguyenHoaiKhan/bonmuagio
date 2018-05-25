@@ -3,6 +3,18 @@ import * as mongoose from 'mongoose';
 // declare schema
 const Schema = mongoose.Schema;
 
+// declare seperatedWork
+
+const SeperatedWorkSchema = new Schema({
+  title: {
+    type: String,
+    required: true
+  },
+  description: String,
+  quantity: Number,
+  members:[String]
+});
+
 // declare schema tag
 const TagSchema = new Schema({
   name: {
