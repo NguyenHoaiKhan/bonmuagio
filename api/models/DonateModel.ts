@@ -29,5 +29,5 @@ const DonateModel = mongoose.model('donate', DonateSchema);
 
 // export
 
-module.exports = DonateModel;
+export {DonateModel} ;
 

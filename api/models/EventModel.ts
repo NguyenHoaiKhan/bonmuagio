@@ -3,7 +3,7 @@ import * as mongoose from 'mongoose';
 // declare schema
 const Schema = mongoose.Schema;
 
-// declare separated Work
+// ---------------------------------- declare separated Work ----------------------------
 
 const SeparatedWorkSchema = new Schema({
   title: {
@@ -12,18 +12,18 @@ const SeparatedWorkSchema = new Schema({
   },
   description: String,
   quantity: Number,
-  members:[String]
+  members: [String]
 });
 
-// declare schema tag
+// --------------- declare schema tag ----------------------------------------
 const TagSchema = new Schema({
   name: {
     type: String,
-    required:true
+    required: true
   },
   parents: String
 });
-// declare a post schema
+// --------------------- declare a post schema -------------------------------------
 const PostSchema = new Schema({
   title: {
     type: String,
@@ -40,7 +40,7 @@ const PostSchema = new Schema({
   images: [String],
   tags: [TagSchema]
 });
-// declare a EventSchema
+// ------------------------- declare a EventSchema -------------------------------
 
 const EventSchema = new Schema({
   name: {
@@ -67,7 +67,7 @@ const EventSchema = new Schema({
     type: String,
     required: true
   },
-  posts: [PostSchema],
+  posts: [this.PostSchema],
   _idPinPost: String,
   cost: {
     type: Number,
@@ -76,8 +76,11 @@ const EventSchema = new Schema({
   works: [SeparatedWorkSchema]
 });
 
-// define Event model
 
+// ---------------- define Event model --------------------
 const EventModel = mongoose.model('event', EventSchema);
 
-module.exports = EventModel;
+export {EventModel};
+
+
+

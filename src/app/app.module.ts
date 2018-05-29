@@ -8,7 +8,7 @@ import { PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { HomeComponent } from './components/home/home.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
-
+import {ClickOutsideModule} from 'ng-click-outside';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { TopbarComponent } from './components/topbar/topbar.component';
   ],
   imports: [
     AppRoutingModule,
-    BrowserModule.withServerTransition({ appId: 'Bon-Mua-Gio' })
+    BrowserModule.withServerTransition({appId: 'Bon-Mua-Gio'}),
+    ClickOutsideModule
   ],
   providers: [],
   bootstrap: [AppComponent]

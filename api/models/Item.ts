@@ -24,4 +24,4 @@ const ItemModel = mongoose.model('item', ItemSchema);
 
 //export
 
-module.exports = ItemModel;
+export {ItemModel};

@@ -1,17 +1,20 @@
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
 
+import * as passport from 'passport';
 import {enableProdMode} from '@angular/core';
 
 import * as express from 'express';
-import {join} from 'path';
+import {join} from "path";
 
-import * as mongoose from 'mongoose';
+import * as mongoose from "mongoose";
+
 
 //import Body-Parser
 import * as bodyParser from 'body-parser';
 
-//mongoose.Promise = global.Promise;
+
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://hoaikhan:123456@ds016298.mlab.com:16298/bonmuagio', () => {
   console.log('sussess!');
 });
@@ -21,6 +24,14 @@ enableProdMode();
 
 // Express server
 const app = express();
+
+// Set up body-Parser
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+//initial passport
+app.use(passport.initialize());
+require('./pp');
 
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist');
@@ -32,6 +43,7 @@ const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./dist/server/main'
 import {ngExpressEngine} from '@nguniversal/express-engine';
 // Import module map for lazy loading
 import {provideModuleMap} from '@nguniversal/module-map-ngfactory-loader';
+
 
 app.engine('html', ngExpressEngine({
   bootstrap: AppServerModuleNgFactory,
@@ -57,10 +69,7 @@ app.get('*', (req, res) => {
   res.render('index', {req});
 });
 
-// Set up body-Parser
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
-
+app.use('/api/user', require('./api/Routes/UserRoute.ts'));
 
 // Start up the Node server
 app.listen(PORT, () => {

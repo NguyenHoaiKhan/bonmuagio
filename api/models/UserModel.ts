@@ -1,11 +1,12 @@
+
 import * as mongoose from 'mongoose';
+
 import * as bcryptjs from 'bcryptjs';
 
-// declare schema
+// ---------------- declare Schema -------------------------------------------------
 const Schema = mongoose.Schema;
 
-// declare Profile Schema
-
+// ---------------- Profile Schema -------------------------------------------------
 const ProfileSchema = new Schema({
   fullName: {
     firstName: String,
@@ -17,10 +18,9 @@ const ProfileSchema = new Schema({
   gender: Boolean,
   facebookLink: String,
   idTask: String
-
 });
-// declare schema User
 
+// -------------- declare UserSchema ----------------------------------------------
 const UserSchema = new Schema({
   username: {
     type: String,
@@ -31,7 +31,7 @@ const UserSchema = new Schema({
     required: true
   },
   role: {
-    //user,admin, Editor
+    //user,admin, editor
     type: String,
     enum: ['user', 'admin', 'editor'],
     required: true
@@ -40,30 +40,37 @@ const UserSchema = new Schema({
   profile: ProfileSchema
 });
 
-// hash pwd
-
-/*UserSchema.pre('save', async function(next) {
+// --------------- Hash Password ------------------------------------------------
+UserSchema.pre('save', async function (next) {
   try {
     const user = this;
-    console.log(user.method);
-
-    if (user.method !== 'local') {
-      return next();
-    }
     // Generate a salt
     const salt = await bcryptjs.genSalt(10);
     // Generate a password hash (salt + hash)
-    const passwordHash = await bcryptjs.hash(user.local.password, salt);
     // Re-assign hashed version over original, plain text password
-    user.local.password = passwordHash;
+    user.password = await bcryptjs.hash(user.password, salt);
     next();
   } catch (error) {
     next(error);
   }
-});*/
+});
 
-// create model
+// --------------- Valid Password ------------------------------------------------
+UserSchema.methods.isValidPassword = async function (newPassword) {
+  try {
+    const user = this;
+    return await bcryptjs.compare(newPassword, user.password);
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+// --------------- Define Model ------------------------------------------------
 const UserModel = mongoose.model('user',UserSchema);
-// export
 
-module.exports = UserModel;
+// --------------- export Model -------------------------------------------------
+export {UserModel};
+
+
+
+
+
