@@ -69,7 +69,18 @@ app.get('*', (req, res) => {
   res.render('index', {req});
 });
 
-app.use('/api/user', require('./api/Routes/UserRoute.ts'));
+// ------------------ Import Router --------------------------------------------------
+import {UserRouter} from "./api/Routes/UserRoute"
+import {DonateRouter} from "./api/Routes/DonateRoute";
+import {ItemRouter} from "./api/Routes/ItemRoute";
+import {TagRouter} from "./api/Routes/TagRoute";
+import {TaskRouter} from "./api/Routes/TaskRoute";
+
+app.use('/api/user', UserRouter);
+app.use('/api/donate', DonateRouter);
+app.use('/api/item', ItemRouter);
+app.use('/api/tag', TagRouter);
+app.use('/api/task', TaskRouter);
 
 // Start up the Node server
 app.listen(PORT, () => {

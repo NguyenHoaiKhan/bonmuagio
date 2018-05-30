@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 
 // declare task schema
 
-const TaskSchema = new  Schema({
+const TaskSchema = new Schema({
   title: String
 });
 

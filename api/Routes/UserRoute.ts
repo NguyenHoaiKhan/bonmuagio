@@ -30,14 +30,8 @@ UserRouter.route('/getById').post(UserController.getById);
 // ------------------------ GET BY USERNAME --------------------------------------------
 UserRouter.route('/getByUserName').post(UserController.getByUserName);
 
-// ------------------------ ADD PROFILE --------------------------------------------
+// ------------------------ EDIT PROFILE --------------------------------------------
+UserRouter.route('/profile_edit/:id').put(UserController.profile_edit);
 
 
-// ------------------------ SIGN IN --------------------------------------------
-
-// ------------------------ SIGN IN --------------------------------------------
-
-// ------------------------ SIGN IN --------------------------------------------
-
-
-module.exports = UserRouter;
+export {UserRouter};

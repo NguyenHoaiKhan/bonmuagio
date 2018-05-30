@@ -1,51 +1,51 @@
-import {DonateModel} from "../Models/DonateModel";
+import {TagModel} from "../Models/TagModel";
 
-export class DonateController {
+export class TagController {
 
   static async getAll(req, res) {
-    const Donates = await DonateModel.find();
-    if (!Donates) {
+    const Tags = await TagModel.find();
+    if (!Tags) {
       res.json({state: 'error', error: 'Somethings went wrong'});
     }
     else {
-      res.json({state: 'success', content: Donates});
+      res.json({state: 'success', content: Tags});
     }
   };
 
   static async getById(req, res) {
     const _id = req.body._id;
-    const Donate = await DonateModel.findById({_id: _id});
-    if (!Donate) {
+    const Tag = await TagModel.findById({_id: _id});
+    if (!Tag) {
       res.json({state: 'error', error: 'Somethings went wrong'});
     }
     else {
-      res.json({state: 'success', content: Donate});
+      res.json({state: 'success', content: Tag});
     }
   };
 
   static async add(req, res) {
     try {
-      const Donate = new DonateModel(req.body);
-      await Donate.save();
-      res.status(200).json({state: 'success', content: Donate});
+      const Tag = new TagModel(req.body);
+      await Tag.save();
+      res.status(200).json({state: 'success', content: Tag});
     } catch (e) {
       res.status(500).json({state: 'error', error: e});
     }
   };
 
   static async update(req, res) {
-    // get Id of Donate
+    // get Id of Tag
     const _id = req.body._id;
     // check exist
-    const Donate = await DonateModel.findById({_id_: _id});
+    const Tag = await TagModel.findById({_id_: _id});
     // process result
-    if (!Donate) {
+    if (!Tag) {
       // fail to update
-      res.status(500).json({state: 'error', error: 'Donate not found'});
+      res.status(500).json({state: 'error', error: 'Tag not found'});
     }
     else {
       // update code
-      const result = await DonateModel.findOneAndUpdate({_id: _id}, req.body);
+      const result = await TagModel.findOneAndUpdate({_id: _id}, req.body);
       // process update
       if (!result) {
         // update fail
@@ -53,8 +53,8 @@ export class DonateController {
       }
       else {
         // update successfully
-        const updateDonate = await DonateModel.findById({_id: _id});
-        res.status(200).json({state: 'success', content: updateDonate});
+        const updateTag = await TagModel.findById({_id: _id});
+        res.status(200).json({state: 'success', content: JSON.parse(Tag)});
       }
     }
 
@@ -64,14 +64,14 @@ export class DonateController {
     // get id
     const _id = req.body._id;
     // check exist
-    const Donate = await DonateModel.findById({_id_: _id});
+    const Tag = await TagModel.findById({_id: _id});
     // process result
-    if (!Donate) {
+    if (!Tag) {
       // fail to update
-      res.status(500).json({state: 'error', error: 'Donate not found'});
+      res.status(500).json({state: 'error', error: 'Tag not found'});
     }
     else {
-      const result = await DonateModel.remove({_id: _id});
+      const result = await TagModel.remove({_id: _id});
       if (!result) {
         res.status(500).json({state: 'error', error: 'Delete did not complete'});
       }

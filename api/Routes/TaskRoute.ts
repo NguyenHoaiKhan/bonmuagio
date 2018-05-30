@@ -6,26 +6,27 @@ const TaskRouter = express_promise_router();
 
 // import Controller
 
-import {TaskController} from '../Controllers/TaskController.js';
+import {TaskController} from '../Controllers/TaskController';
 
-const taskController = new TaskController();
 
 // route
 
 // get all task
-TaskRouter.route('/getAll').post(taskController.getAll);
+TaskRouter.route('/getAll').post(TaskController.getAll);
 
 // get a task by Id
-TaskRouter.route('/getById').post(taskController.getById);
+TaskRouter.route('/getById').post(TaskController.getById);
 
 // create a task
-TaskRouter.route('/add').post(taskController.add);
+TaskRouter.route('/add').post(TaskController.add);
 
 // update a task
-TaskRouter.route('/update').put(taskController.update);
+TaskRouter.route('/update').put(TaskController.update);
 
 // delete a task
-TaskRouter.route('/delete').detete(taskController.delete);
+TaskRouter.route('/delete').delete(TaskController.delete);
+
+export {TaskRouter};
 
 
 

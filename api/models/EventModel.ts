@@ -15,14 +15,6 @@ const SeparatedWorkSchema = new Schema({
   members: [String]
 });
 
-// --------------- declare schema tag ----------------------------------------
-const TagSchema = new Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  parents: String
-});
 // --------------------- declare a post schema -------------------------------------
 const PostSchema = new Schema({
   title: {
@@ -38,7 +30,7 @@ const PostSchema = new Schema({
     required: true
   },
   images: [String],
-  tags: [TagSchema]
+  tags: [String]
 });
 // ------------------------- declare a EventSchema -------------------------------
 

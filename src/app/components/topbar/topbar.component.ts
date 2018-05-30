@@ -31,9 +31,7 @@ export class TopbarComponent implements OnInit {
   }
 
   onClickedOutside(): void {
-    if (this.divWidth < 767 && this.isShow === true)
-      this.isShow = false;
-    else this.isShow = true;
+    this.isShow = !(this.divWidth < 767 && this.isShow === true);
   }
 
   ngOnInit() {
