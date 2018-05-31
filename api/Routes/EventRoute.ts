@@ -25,19 +25,19 @@ EventRouter.route('/delete').delete(EventController.delete);
 
 /*------------------------ Post Route -----------------------*/
 
-EventRouter.route('/:idEvent/post_getAll').post(EventController.post_getAll);
+EventRouter.route('/:_idEvent/post_getAll').post(EventController.post_getAll);
 
 // get post by id
-EventRouter.route('/:idEvent/post_getById').post(EventController.post_getById);
+EventRouter.route('/:_idEvent/post_getById').post(EventController.post_getById);
 
 // create an post
-EventRouter.route('/:idEvent/post_add').post(EventController.post_add);
+EventRouter.route('/:_idEvent/post_add').post(EventController.post_add);
 
 // update an post
-EventRouter.route('/:idEvent/post_update').put(EventController.post_update);
+EventRouter.route('/:_idEvent/post_update').put(EventController.post_update);
 
 // delete an post
-EventRouter.route('/post_delete').delete(EventController.post_delete);
+EventRouter.route('/:_idEvent/:idEvent/post_delete').delete(EventController.post_delete);
 
 /* --------------------------------------- Separated Work ---------------------------------------------------*/
 
@@ -56,5 +56,5 @@ EventRouter.route('/:idEvent/separatedWork_update').put(EventController.separate
 // delete an post
 EventRouter.route('/:idEvent/separatedWork_delete').delete(EventController.separatedWork_delete);
 
-
+export {EventRouter};
 

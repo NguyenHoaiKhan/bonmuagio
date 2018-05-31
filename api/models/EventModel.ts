@@ -59,7 +59,7 @@ const EventSchema = new Schema({
     type: String,
     required: true
   },
-  posts: [this.PostSchema],
+  posts: [PostSchema],
   _idPinPost: String,
   cost: {
     type: Number,

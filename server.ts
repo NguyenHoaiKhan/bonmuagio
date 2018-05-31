@@ -75,12 +75,14 @@ import {DonateRouter} from "./api/Routes/DonateRoute";
 import {ItemRouter} from "./api/Routes/ItemRoute";
 import {TagRouter} from "./api/Routes/TagRoute";
 import {TaskRouter} from "./api/Routes/TaskRoute";
+import {EventRouter} from "./api/Routes/EventRoute";
 
 app.use('/api/user', UserRouter);
 app.use('/api/donate', DonateRouter);
 app.use('/api/item', ItemRouter);
 app.use('/api/tag', TagRouter);
 app.use('/api/task', TaskRouter);
+app.use('/api/event', EventRouter);
 
 // Start up the Node server
 app.listen(PORT, () => {
