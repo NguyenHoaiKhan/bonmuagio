@@ -10,7 +10,7 @@ export class TopbarComponent implements OnInit {
   menuList: String[] = ['TRANG CHỦ', 'SỰ KIỆN', 'TIMELINE', 'TÀI TRỢ', 'THÀNH VIÊN', 'GIỚI THIỆU'];
   isShow: boolean = true;
   divWidth = 0;
-  rightPos = '-200px';
+  rightPos = '-100%';
   clicked = false;
   @ViewChild('parentsDiv') parentDiv: ElementRef;
   @ViewChild('menuContainerRes') menuContainerRes: ElementRef;
@@ -45,10 +45,15 @@ export class TopbarComponent implements OnInit {
     if (this.clicked)
       this.rightPos = '0';
     else
-      this.rightPos = '-200px';
+      this.rightPos = '-100%';
   }
 
   ngOnInit() {
+    if (this.parentDiv) {
+      this.divWidth = this.parentDiv.nativeElement.clientWidth;
+      if (this.divWidth < 900) this.isShow = false;
+      else (this.isShow = true);
+    }
   }
 
 }

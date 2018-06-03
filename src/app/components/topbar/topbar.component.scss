@@ -105,8 +105,27 @@ body {
 	transition: 0.3s;
 }
 
+.top-bar .menu-button::after{
+	content: 'BỐN MÙA GIÓ';
+	position: absolute;
+	width: 200px;
+	right: 0;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	top: 4px;
+	transition: 0.5s;
+	transform: translateX(100px);
+	opacity: 0;
+}
+
 .top-bar .menu-button:hover{
 	border: 2px solid white;
+}
+
+.top-bar .menu-button:hover::after{
+	transform: translateX(0);
+	opacity: 1;
 }
 
 .top-bar .menu-button .bar{
@@ -141,13 +160,14 @@ body {
 .top-bar .menu-container-responsive{
 	position: fixed;
 	height: 100%;
-	width: 200px;
+	width: 30vw;
+	min-width: 250px;
 	background-color: rgb(228, 228, 228);
 	padding-top: 10px;
 	padding-bottom: 10px;
 	top: 70px;
-  right: -200px;
-  transition: 0.3s;
+	transition: right 0.7s;
+	z-index: 1;
 }
 
 .top-bar .menu-container-responsive .menu-responsive{
@@ -159,7 +179,7 @@ body {
 	color: #f47b60;
 	cursor: pointer;
 	line-height: 35px;
-	transition: 0.3s;
+	transition: padding-right 0.3s;
 	text-align: right;
 	border-bottom: 1px solid #f47b60;
 }

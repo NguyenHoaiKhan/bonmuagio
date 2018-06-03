@@ -117,9 +117,10 @@
 }
 
 .home .container .buttons .button:hover {
-  color: #f47b60;
-  background-color: white;
-  transform: scale(1.1);
+  border-color: yellow;
+  color: yellow;
+  box-shadow: 0px 0px 5px yellow;
+  transform: scale(1.05);
 }
 
 /*
