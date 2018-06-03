@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private userService: EventService) {
     userService.getAll().subscribe(users => console.log(users));
-    userService.getById({_id: '5b0b48a25400a5108c4ba730'}).subscribe(user => console.log(user));
+    userService.getById({_id: '5b0ef89a73434c0c4840899c'}).subscribe(user => console.log(user));
   }
   ngOnInit() {
   }
