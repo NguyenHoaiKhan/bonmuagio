@@ -1,9 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
 /* ----------- GLOBAL ---------- */
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: 'Helvetica Neue-L';
+  src: url("./assets/fonts/helveticaneueultralight.ttf");
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url("./assets/fonts/helveticaneue.ttf");
+}
+
+@font-face {
+  font-family: 'vlangeline';
+  src: url('./assets/fonts/vlangeline.ttf') ;
+}
+
+/* ----------- GLOBAL ---------- */
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Helvetica Neue';
   cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-touch-select: none;
+  -ms-user-select: none;
 }
+
 

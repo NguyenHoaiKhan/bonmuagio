@@ -7,7 +7,7 @@ import {Component, OnInit, ViewChild, HostListener, ElementRef} from '@angular/c
   styleUrls: ['./topbar.component.scss']
 })
 export class TopbarComponent implements OnInit {
-  menuList: String[] = ['TRANG CHỦ', 'DÒNG THỜI GIAN', 'SỰ KIỆN', 'SẮP TỚI'];
+  menuList: String[] = ['TRANG CHỦ', 'SỰ KIỆN', 'TIMELINE', 'TÀI TRỢ', 'THÀNH VIÊN', 'GIỚI THIỆU'];
   isShow: boolean = true;
   divWidth = 0;
   @ViewChild('parentsDiv') parentDiv: ElementRef;
@@ -24,11 +24,12 @@ export class TopbarComponent implements OnInit {
     console.clear();
   }
 
-  ngAfterViewInit() {
-    // wait a tick to avoid one-time devMode
-    // unidirectional-data-flow-violation error
-    setTimeout(_ => this.divWidth = this.parentDiv.nativeElement.clientWidth);
-  }
+  /*
+	ngAfterViewInit() {
+	  // wait a tick to avoid one-time devMode
+	  // unidirectional-data-flow-violation error
+	  setTimeout(_ => this.divWidth = this.parentDiv.nativeElement.clientWidth);
+	}*/
 
   onClickedOutside(): void {
     this.isShow = !(this.divWidth < 767 && this.isShow === true);

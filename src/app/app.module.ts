@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {APP_BASE_HREF} from '@angular/common';
+import {UserService} from "./services/user.service";
+import {HttpClientModule} from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,9 +22,10 @@ import {ClickOutsideModule} from 'ng-click-outside';
   imports: [
     AppRoutingModule,
     BrowserModule.withServerTransition({appId: 'Bon-Mua-Gio'}),
-    ClickOutsideModule
+    ClickOutsideModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{provide: APP_BASE_HREF, useValue: 'http://localhost:4000'}, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

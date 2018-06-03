@@ -1,207 +1,121 @@
-/* ---------------- HEADER ----------------- */
-header {
-  width: 100%;
-  height: 100vh;
-  background-image: url('../../../assets/images/bg.jpg');
-  background-size: cover;
-  min-width: 320px;
+/*
+ **************************************************************
+ *							GLOBALS
+ **************************************************************
+*/
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue';
+  background-image: url(../../../assets/images/bg-pattern.png);
 }
 
-/* --------------- TOPBAR ----------------*/
-header .top-bar {
-  background-color: rgba(255, 255, 255, 0.1);
+/*
+ **************************************************************
+ *							TOP-BAR
+ **************************************************************
+*/
+.top-bar {
+  top: 0;
+  left: 0;
+  right: 0;
   height: 70px;
+  width: 1366px;
+  margin: 0px auto;
+  background-color: #f47b60;
+  position: fixed;
+  z-index: 1;
+  box-shadow: 0px 0px 20px #616161;
 }
 
-header .top-bar .container {
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
+.top-bar .container {
+  width: 1366px;
+  margin: 0px auto;
   position: relative;
   height: 100%;
 }
 
-header .top-bar .container img {
-  display: inline-block;
+/*
+ **************************************************************
+ *							LOGO
+ **************************************************************
+*/
+
+.top-bar .container .logo {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto 0;
+  top: 10px;
+  left: 20px;
 }
 
-header .top-bar .container .name {
-  display: inline-block;
-  position: absolute;
-  left: 70px;
-  top: 0;
-  bottom: 0;
-  margin: auto 0;
-  color: white;
-  height: max-content;
-  font-size: 24px;
-}
+/*
+ **************************************************************
+ *					MENU-CONTAINER (TOPBAR)
+ **************************************************************
+*/
 
-/*----------------- MENU ----------- */
-
-header .top-bar .container .menu-bar {
+.top-bar .menu-container {
   position: absolute;
-  font-weight: lighter;
+  width: max-content;
   height: max-content;
   top: 0;
   bottom: 0;
-  margin: auto 0;
-  right: 0;
-  color: #e0e0e0;
-  display: inline-block;
-}
-
-header .top-bar .container .menu-bar span.sep {
-  margin: 0 5px;
-}
-
-header .top-bar .container .menu-bar .menu {
-  display: inline-block;
-  cursor: pointer;
-  font-weight: lighter;
-  transition: 0.5s;
-  position: relative;
-  padding: 0 3px;
-}
-
-header .top-bar .container .menu-bar .menu:hover {
-  color: yellow;
-}
-
-header .top-bar .container .menu-bar .menu::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
   left: 0;
-  width: 100%;
-  height: 1px;
-  background-color: #e0e0e0;
-  transition: transform 0.3s;
-  transform: scaleX(0);
-}
-
-header .top-bar .container .menu-bar .menu:hover::after {
-  transform: scaleX(1);
-  background-color: yellow;
-}
-
-/*----------------- RESPONSIVE MENU ----------- */
-header .top-bar .container .menu-button {
-  position: absolute;
-  box-sizing: border-box;
-  width: 25px;
-  height: 23px;
-  border: 1px solid #e0e0e0;
   right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto 0;
-  border-radius: 3px;
+  margin: auto;
+}
+
+/*
+ **************************************************************
+ *						 	  MENU
+ **************************************************************
+*/
+.top-bar .menu-container .menu {
+  display: inline-block;
+  font-size: 17px;
+  font-weight: bold;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: white;
   cursor: pointer;
-  display: none;
-}
-
-header .top-bar .container .menu-button:hover {
-  background-color: yellow;
-  border-color: yellow;
+  line-height: 70px;
   transition: 0.3s;
 }
 
-header .top-bar .container .menu-button:hover .bar {
-  background-color: rgb(133, 133, 133);
+.top-bar .menu-container .menu:hover {
+  background-color: white;
+  color: #f47b60;
 }
 
-header .top-bar .container .menu-button .bar {
+/*
+ **************************************************************
+ *							MENU BUTTON
+ **************************************************************
+*/
+
+.top-bar .menu-button {
   position: absolute;
-  height: 3px;
-  background-color: #e0e0e0;
-  left: 3px;
-  right: 3px;
-  transition: 0.3s;
+  width: 35px;
+  height: 25px;
+  top: 0;
+  margin: auto 0;
+  bottom: 0;
+  right: 50px;
 }
 
-header .top-bar .container .menu-button .b1 {
-  top: 3px;
+.top-bar .menu-button .bar {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background-color: white;
 }
 
-header .top-bar .container .menu-button .b2 {
+.top-bar .menu-button #bar2 {
   top: 0;
   bottom: 0;
   margin: auto 0;
 }
 
-header .top-bar .container .menu-button .b3 {
-  bottom: 3px;
-}
-
-@media screen and (max-width: 767px) {
-  header .top-bar .container .menu-bar {
-    top: 190px;
-    border-right: 3px solid rgba(255, 255, 255, 0.1);
-    display: none;
-  }
-
-  header .top-bar .container .menu-bar .menu {
-    text-align: right;
-    line-height: 30px;
-    padding-left: 10px;
-    padding-right: 10px;
-    display: none;
-  }
-
-  header .top-bar .container .menu-bar .menu:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-
-  header .top-bar .container .menu-bar .menu:after {
-    content: '';
-    margin: 0;
-  }
-
-  header .top-bar .container .menu-button {
-    display: block;
-  }
-
-  header .top-bar .container span.sep {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  header .top-bar .container .menu-bar {
-    top: 190px;
-    border-right: 3px solid rgba(255, 255, 255, 0.1);
-    display: block;
-  }
-
-  header .top-bar .container .menu-bar .menu {
-    text-align: right;
-    line-height: 30px;
-    padding-left: 10px;
-    padding-right: 10px;
-    display: block;
-  }
-
-  header .top-bar .container .menu-bar .menu:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-
-  header .top-bar .container .menu-bar .menu:after {
-    content: '';
-    margin: 0;
-  }
-
-  header .top-bar .container .menu-button {
-    display: block;
-  }
-
-  header .top-bar .container span.sep {
-    display: none;
-  }
+.top-bar .menu-button #bar3 {
+  bottom: 0;
 }

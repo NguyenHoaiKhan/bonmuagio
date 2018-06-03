@@ -37,24 +37,24 @@ EventRouter.route('/:_idEvent/post_add').post(EventController.post_add);
 EventRouter.route('/:_idEvent/post_update').put(EventController.post_update);
 
 // delete an post
-EventRouter.route('/:_idEvent/:idEvent/post_delete').delete(EventController.post_delete);
+EventRouter.route('/:_idEvent/post_delete').delete(EventController.post_delete);
 
 /* --------------------------------------- Separated Work ---------------------------------------------------*/
 
 
-EventRouter.route('/:idEvent/separatedWork_getAll').post(EventController.separatedWork_getAll);
+EventRouter.route('/:_idEvent/separatedWork_getAll').post(EventController.separatedWork_getAll);
 
 // get post by id
-EventRouter.route('/:idEvent/separatedWork_getById').post(EventController.separatedWork_getById);
+EventRouter.route('/:_idEvent/separatedWork_getById').post(EventController.separatedWork_getById);
 
 // create an post
-EventRouter.route('/:idEvent/separatedWork_add').post(EventController.separatedWork_add);
+EventRouter.route('/:_idEvent/separatedWork_add').post(EventController.separatedWork_add);
 
 // update an post
-EventRouter.route('/:idEvent/separatedWork_update').put(EventController.separatedWork_update);
+EventRouter.route('/:_idEvent/separatedWork_update').put(EventController.separatedWork_update);
 
 // delete an post
-EventRouter.route('/:idEvent/separatedWork_delete').delete(EventController.separatedWork_delete);
+EventRouter.route('/:_idEvent/separatedWork_delete').delete(EventController.separatedWork_delete);
 
 export {EventRouter};
 
