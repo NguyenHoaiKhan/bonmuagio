@@ -1,14 +1,27 @@
+<<<<<<< HEAD
+<div class="top-bar" #parentsDiv>
+=======
 <div class="top-bar">
+>>>>>>> c25ee2f9112640090c90105e0d799effcc08b25c
   <div class="container">
     <div class="logo">
       <img src="../../../assets/images/Logo.png" width="50px" alt="">
     </div>
+<<<<<<< HEAD
+    <div [ngClass]="{'menu-container':isShow,'menu-container-responsive':!isShow}" [ngStyle]="{'right' : rightPos}" id="menu-container" #menuContainerRes>
+      <ng-container *ngFor="let menu of menuList">
+        <div [ngClass]="{'menu':isShow,'menu-responsive':!isShow}">{{menu}}</div>
+      </ng-container>
+    </div>
+    <div [hidden]="isShow" class="menu-button" (click)="menuButtonClick()">
+=======
     <div class="menu-container" id="menu-container">
       <ng-container *ngFor="let menu of menuList">
         <div class="menu">{{menu}}</div>
       </ng-container>
     </div>
     <div class="menu-button">
+>>>>>>> c25ee2f9112640090c90105e0d799effcc08b25c
       <div class="bar" id="bar1"></div>
       <div class="bar" id="bar2"></div>
       <div class="bar" id="bar3"></div>

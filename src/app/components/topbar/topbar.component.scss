@@ -21,7 +21,11 @@ body {
   left: 0;
   right: 0;
   height: 70px;
+<<<<<<< HEAD
+  width: 100vw;
+=======
   width: 1366px;
+>>>>>>> c25ee2f9112640090c90105e0d799effcc08b25c
   margin: 0px auto;
   background-color: #f47b60;
   position: fixed;
@@ -30,7 +34,10 @@ body {
 }
 
 .top-bar .container {
+<<<<<<< HEAD
+=======
   width: 1366px;
+>>>>>>> c25ee2f9112640090c90105e0d799effcc08b25c
   margin: 0px auto;
   position: relative;
   height: 100%;
@@ -93,6 +100,86 @@ body {
  **************************************************************
 */
 
+<<<<<<< HEAD
+.top-bar .menu-button{
+	position: absolute;
+	width: 40px;
+	height: 30px;
+	top: 0;
+	margin: auto 0;
+	bottom: 0;
+	right: 50px;
+	border-radius: 4px;
+	border: 2px solid transparent;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.top-bar .menu-button:hover{
+	border: 2px solid white;
+}
+
+.top-bar .menu-button .bar{
+	position: absolute;
+	left: 5px;
+	right: 5px;
+	height: 4px;
+	background-color: white;
+	border-radius: 3px;
+}
+
+.top-bar .menu-button #bar1{
+	top: 5px;
+}
+
+.top-bar .menu-button #bar2{
+	top: 5px;
+	bottom: 5px;
+	margin: auto 0;
+}
+
+.top-bar .menu-button #bar3{
+	bottom: 5px;
+}
+
+/*
+ **************************************************************
+ *						  MENU RESPONSIVE
+ **************************************************************
+*/
+
+.top-bar .menu-container-responsive{
+	position: fixed;
+	height: 100%;
+	width: 200px;
+	background-color: rgb(228, 228, 228);
+	padding-top: 10px;
+	padding-bottom: 10px;
+	top: 70px;
+  right: -200px;
+  transition: 0.3s;
+}
+
+.top-bar .menu-container-responsive .menu-responsive{
+	display: block;
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 20px;
+	padding-right: 20px;
+	color: #f47b60;
+	cursor: pointer;
+	line-height: 35px;
+	transition: 0.3s;
+	text-align: right;
+	border-bottom: 1px solid #f47b60;
+}
+
+.top-bar .menu-container-responsive .menu-responsive:hover{
+	background-color: #f47b60;
+	color: white;
+	padding-right: 30px;
+}
+=======
 .top-bar .menu-button {
   position: absolute;
   width: 35px;
@@ -119,3 +206,4 @@ body {
 .top-bar .menu-button #bar3 {
   bottom: 0;
 }
+>>>>>>> c25ee2f9112640090c90105e0d799effcc08b25c
