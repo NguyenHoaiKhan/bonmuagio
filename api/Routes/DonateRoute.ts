@@ -19,7 +19,7 @@ DonateRouter.route('/add').post(DonateController.add);
 DonateRouter.route('/update').put(DonateController.update);
 
 // delete an donate
-DonateRouter.route('/delete').delete(DonateController.delete);
+DonateRouter.route('/delete/:_id').delete(DonateController.delete);
 
 export {DonateRouter};
 

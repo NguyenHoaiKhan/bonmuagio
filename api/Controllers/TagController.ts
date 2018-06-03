@@ -62,7 +62,7 @@ export class TagController {
 
   static async delete(req, res) {
     // get id
-    const _id = req.body._id;
+    const _id = req.params._id;
     // check exist
     const Tag = await TagModel.findById({_id: _id});
     // process result

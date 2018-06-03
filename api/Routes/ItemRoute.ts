@@ -19,7 +19,7 @@ ItemRouter.route('/add').post(ItemController.add);
 ItemRouter.route('/update').put(ItemController.update);
 
 // delete an item
-ItemRouter.route('/delete').delete(ItemController.delete);
+ItemRouter.route('/delete/:_id').delete(ItemController.delete);
 
 export {ItemRouter};
 

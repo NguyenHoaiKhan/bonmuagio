@@ -63,7 +63,7 @@ export class EventController {
 
   static async delete(req, res) {
     // get id
-    const _id = req.body._id;
+    const _id = req.params._id;
     // check exist
     const Event = await EventModel.findById({_id_: _id});
     // process result
@@ -162,7 +162,7 @@ export class EventController {
     }
     else {
       if (await Event.posts.id(req.body._id)) {
-        const post = await Event.posts.id(req.body._id).remove();
+        const post = await Event.posts.id(req.params._id).remove();
         await Event.save();
         if (!post) {
           res.status(500).json({state: 'error', error: 'Delete did not complete'});
@@ -255,7 +255,7 @@ export class EventController {
       res.status(500).json({state: 'error', error: 'Event not found'});
     }
     else {
-      if (await Event.works.id(req.body._id)) {
+      if (await Event.works.id(req.params._id)) {
         const post = await Event.posts.id(req.body._id).romove();
         await Event.save();
         if (!post) {
