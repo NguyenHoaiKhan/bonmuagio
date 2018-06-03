@@ -19,7 +19,7 @@ TagRouter.route('/add').post(TagController.add);
 TagRouter.route('/update').put(TagController.update);
 
 // delete an item
-TagRouter.route('/delete').delete(TagController.delete);
+TagRouter.route('/delete/:_id').delete(TagController.delete);
 
 export {TagRouter};
 

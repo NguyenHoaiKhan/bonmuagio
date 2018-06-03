@@ -62,7 +62,7 @@ export class ItemController {
 
   static async delete(req, res) {
     // get id
-    const _id = req.body._id;
+    const _id = req.params._id;
     // check exist
     const Item = await ItemModel.findById({_id_: _id});
     // process result

@@ -24,7 +24,7 @@ TaskRouter.route('/add').post(TaskController.add);
 TaskRouter.route('/update').put(TaskController.update);
 
 // delete a task
-TaskRouter.route('/delete').delete(TaskController.delete);
+TaskRouter.route('/delete/:_id').delete(TaskController.delete);
 
 export {TaskRouter};
 
