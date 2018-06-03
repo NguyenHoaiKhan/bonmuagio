@@ -19,7 +19,7 @@ export class TopbarComponent implements OnInit {
     // guard against resize before view is rendered
     if (this.parentDiv) {
       this.divWidth = this.parentDiv.nativeElement.clientWidth;
-      if (this.divWidth <= 767) this.isShow = false;
+      if (this.divWidth < 900) this.isShow = false;
       else (this.isShow = true);
     }
   }
@@ -36,7 +36,7 @@ export class TopbarComponent implements OnInit {
 	}*/
 
   onClickedOutside(): void {
-    this.isShow = !(this.divWidth < 767 && this.isShow === true);
+    this.isShow = !(this.divWidth < 900 && this.isShow === true);
   }
 
   menuButtonClick():void {
