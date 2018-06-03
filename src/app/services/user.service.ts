@@ -20,14 +20,14 @@ const Header = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
 })
 export class UserService {
   // ------------------------------------ URL ----------------------------------------------------------
-  signInURL: string = '/api/user/signIn';
-  signUpURL: string = '/api/user/signUp';
-  secretURL: string = '/api/user/secret';
-  changePasswordURL: string = '/api/user/changePassword';
-  getAllURL: string = '/api/user/getAll';
-  getByIdURL: string = '/api/user/getById';
-  getByUserNameURL: string = '/api/user/getByUserName';
-  profile_editURL: string = '/api/user/profile_edit';
+  protected signInURL: string = '/api/user/signIn';
+  protected signUpURL: string = '/api/user/signUp';
+  protected secretURL: string = '/api/user/secret';
+  protected changePasswordURL: string = '/api/user/changePassword';
+  protected getAllURL: string = '/api/user/getAll';
+  protected getByIdURL: string = '/api/user/getById';
+  protected getByUserNameURL: string = '/api/user/getByUserName';
+  protected profile_editURL: string = '/api/user/profile_edit';
 
   constructor(
     private http: HttpClient,

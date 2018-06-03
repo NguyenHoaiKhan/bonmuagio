@@ -17,21 +17,24 @@ export class EventService {
   updateURL: string = '/api/event/update';
   deleteURL: string = '/api/event/delete';
 // -------------------------  Post URL ------------------------------------------------------
-  _idEvent: string = '';
-  post_getAllURL: string = `/api/event/${this._idEvent}/getAll`;
-  post_getByIdURL: string = `/api/event/${this._idEvent}/getById`;
-  post_addURL: string = `/api/event/${this._idEvent}/add`;
-  post_updateURL: string = `/api/event/${this._idEvent}/update`;
-  post_deleteURL: string = `/api/event/${this._idEvent}/delete`;
+  origin: string = '';
+  post_getAllURL: string;
+  post_getByIdURL: string;
+  post_addURL: string;
+  post_updateURL: string;
+  post_deleteURL: string;
 
   constructor(private http: HttpClient,
-              @Optional() @Inject(APP_BASE_HREF) origin: string) {
+              @Optional() @Inject(APP_BASE_HREF)  origin: string) {
+    this.origin = origin;
     this.getAllURL = `${origin}${this.getAllURL}`;
     this.getByIdURL = `${origin}${this.getByIdURL}`;
     this.addURL = `${origin}${this.addURL}`;
     this.updateURL = `${origin}${this.updateURL}`;
     this.deleteURL = `${origin}${this.deleteURL}`;
   }
+
+// --------------------------------------- Event Service --------------------------------------------
 
   // ------------------------------------ Get All ----------------------------------------------------
   getAll(): Observable<EventModel[]> {
@@ -58,7 +61,70 @@ export class EventService {
     return this.http.delete<String>(`${this.deleteURL}/${_id}`, Header);
   }
 
-  // ------------------------------------- E
+  // ------------------------------------- Post Service ----------------------------------------------
+
+  // -------------------------------------- Get All -------------------------------------------------
+  post_getAll(_idEvent): Observable<any> {
+    this.post_getAllURL = `${this.origin}/api/event/${_idEvent}/post_getAll`;
+    return this.http.post<any>(this.getAllURL, '', Header);
+  };
+
+  // ------------------------------------ Get By ID --------------------------------------------------
+  post_getById(_idEvent, reqBody): Observable<any> {
+    this.post_getByIdURL = `${this.origin}/api/event/${_idEvent}/post_getById`;
+    return this.http.post<any>(this.getByIdURL, reqBody, Header);
+  };
+
+  // ------------------------------------- Add --------------------------------------------------------
+  post_add(_idEvent, reqBody): Observable<any> {
+    this.post_addURL = `${this.origin}/api/event/${_idEvent}/post_add`;
+    return this.http.post<any>(this.addURL, reqBody, Header);
+  }
+
+  // ------------------------------------- Update ----------------------------------------------------
+  post_update(_idEvent, reqBody): Observable<any> {
+    this.post_updateURL = `${this.origin}/api/event/${_idEvent}/post_update`;
+    return this.http.put<any>(this.updateURL, reqBody, Header);
+  }
+
+  // ------------------------------------- Delete ----------------------------------------------------
+  post_delete(_idEvent, _id): Observable<any> {
+    this.post_deleteURL = `${this.origin}/api/event/${_idEvent}/post_delete`;
+    return this.http.delete<String>(`${this.deleteURL}/${_id}`, Header);
+  }
+
+  // ------------------------------------- Separated Work Service ----------------------------------------------
+
+  // -------------------------------------- Get All -------------------------------------------------
+  separatedWork_getAll(_idEvent): Observable<any> {
+    this.post_getAllURL = `${this.origin}/api/event/${_idEvent}/separatedWork_getAll`;
+    return this.http.post<any>(this.getAllURL, '', Header);
+  };
+
+  // ------------------------------------ Get By ID --------------------------------------------------
+  separatedWork_getById(_idEvent, reqBody): Observable<any> {
+    this.post_getByIdURL = `${this.origin}/api/event/${_idEvent}/separatedWork_getById`;
+    return this.http.post<any>(this.getByIdURL, reqBody, Header);
+  };
+
+  // ------------------------------------- Add --------------------------------------------------------
+  separatedWork_add(_idEvent, reqBody): Observable<any> {
+    this.post_addURL = `${this.origin}/api/event/${_idEvent}/separatedWork_add`;
+    return this.http.post<any>(this.addURL, reqBody, Header);
+  }
+
+  // ------------------------------------- Update ----------------------------------------------------
+  separatedWork_update(_idEvent, reqBody): Observable<any> {
+    this.post_updateURL = `${this.origin}/api/event/${_idEvent}/separatedWork_update`;
+    return this.http.put<any>(this.updateURL, reqBody, Header);
+  }
+
+  // ------------------------------------- Delete ----------------------------------------------------
+  separatedWork_delete(_idEvent, _id): Observable<any> {
+    this.post_deleteURL = `${this.origin}/api/event/${_idEvent}/separatedWork_delete`;
+    return this.http.delete<String>(`${this.deleteURL}/${_id}`, Header);
+  }
+
 
 
 }

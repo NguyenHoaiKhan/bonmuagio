@@ -7,7 +7,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Helvetica Neue';
+  font-family: 'vlangeline', sans-serif;
   background-image: url(../../../assets/images/bg-pattern.png);
 }
 
@@ -21,24 +21,18 @@ body {
   left: 0;
   right: 0;
   height: 70px;
-<<<<<<< HEAD
   width: 100vw;
-=======
-  width: 1366px;
->>>>>>> c25ee2f9112640090c90105e0d799effcc08b25c
-  margin: 0px auto;
+  margin: 0 auto;
   background-color: #f47b60;
   position: fixed;
   z-index: 1;
-  box-shadow: 0px 0px 20px #616161;
+  box-shadow: 0 0 20px #616161;
 }
 
 .top-bar .container {
-<<<<<<< HEAD
-=======
+
   width: 1366px;
->>>>>>> c25ee2f9112640090c90105e0d799effcc08b25c
-  margin: 0px auto;
+  margin: 0 auto;
   position: relative;
   height: 100%;
 }
@@ -100,7 +94,6 @@ body {
  **************************************************************
 */
 
-<<<<<<< HEAD
 .top-bar .menu-button{
 	position: absolute;
 	width: 40px;
@@ -179,7 +172,6 @@ body {
 	color: white;
 	padding-right: 30px;
 }
-=======
 .top-bar .menu-button {
   position: absolute;
   width: 35px;
@@ -206,4 +198,3 @@ body {
 .top-bar .menu-button #bar3 {
   bottom: 0;
 }
->>>>>>> c25ee2f9112640090c90105e0d799effcc08b25c
