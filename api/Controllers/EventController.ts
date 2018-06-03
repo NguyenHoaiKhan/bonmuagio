@@ -97,13 +97,12 @@ export class EventController {
 
   static async post_getById(req, res) {
     const _id = req.params._idEvent;
-    const Event = await EventModel.findById({_id: _id});
-    console.log(Event);
+    const Event = await EventModel.findById({_id: _id}, {posts: 1});
     if (!Event) {
       res.json({state: 'error', error: 'Somethings went wrong'});
     }
     else {
-      const post = Event.posts.find(req.body._id);
+      const post = await Event.posts.id(req.body._id);
       res.json({state: 'success', content: post});
     }
   };
@@ -112,10 +111,9 @@ export class EventController {
     try {
       const _id = req.params._idEvent;
       const Event = await EventModel.findById({_id: _id});
-      Event.posts.push(req.body);
-      await Event.save();
-      const updatedEvent = await EventModel.findById({_id: _id});
-      res.status(200).json({state: 'success', content: updatedEvent.posts});
+      const post = await Event.posts.create(req.body);
+      //const updatedEvent = await EventModel.findById({_id: _id});
+      res.status(200).json({state: 'success', content: post});
     } catch (e) {
       res.status(500).json({state: 'error', error: e});
     }
@@ -132,8 +130,10 @@ export class EventController {
       res.status(500).json({state: 'error', error: 'Event not found'});
     }
     else {
-      const postIndex = Event.posts.findIndex(post => post._id === req.body._id);
-      Event.posts[postIndex] = req.body;
+      const posts = Event.posts;
+      const postUpdateIndex = posts.findIndex(post => post._id = req.body._id);
+      posts[postUpdateIndex] = req.body;
+      Event.posts = posts;
       // update code
       const result = await EventModel.findOneAndUpdate({_id: _id}, Event);
       // process update
@@ -144,32 +144,35 @@ export class EventController {
       else {
         // update successfully
         const UpdateEvent = await EventModel.findById({_id: _id});
-        const post = UpdateEvent.posts.find(post => post._id === req.body._id);
+        const post = await UpdateEvent.posts.id(req.body._id);
         res.json({state: 'success', content: post});
       }
     }
-
   };
 
   static async post_delete(req, res) {
     // get id
     const _id = req.params._idEvent;
     // check exist
-    const Event = await EventModel.findById({_id_: _id});
+    const Event = await EventModel.findById({_id: _id});
     // process result
     if (!Event) {
       // fail to update
       res.status(500).json({state: 'error', error: 'Event not found'});
     }
     else {
-      const postIndex = Event.posts.findIndex(post => post._id === req.body._id);
-      Event.posts.splice(postIndex, 1);
-      const updateEvent = await EventModel.findOneAndUpdate({_id: _id}, Event);
-      if (!updateEvent) {
-        res.status(500).json({state: 'error', error: 'Delete did not complete'});
+      if (await Event.posts.id(req.body._id)) {
+        const post = await Event.posts.id(req.body._id).remove();
+        await Event.save();
+        if (!post) {
+          res.status(500).json({state: 'error', error: 'Delete did not complete'});
+        }
+        else {
+          res.status(200).json({state: 'success', content: req.body._id});
+        }
       }
       else {
-        res.status(200).json({state: 'success', content: req.body._id});
+        res.status(500).json({state: 'error', error: 'Can not find this post'});
       }
     }
   }
@@ -177,7 +180,7 @@ export class EventController {
   /*----------------------------------------------- SeparatedWork controller -------------------------------------------------*/
   static async separatedWork_getAll(req, res) {
     const _id = req.params._idEvent;
-    const Event = await EventModel.find({_id: _id});
+    const Event = await EventModel.findById({_id: _id});
     if (!Event) {
       res.json({state: 'error', error: 'Somethings went wrong'});
     }
@@ -193,7 +196,7 @@ export class EventController {
       res.json({state: 'error', error: 'Somethings went wrong'});
     }
     else {
-      const work = Event.works.find(work => work._id === req.body._id);
+      const work = await Event.works.id(req.body._id);
       res.json({state: 'success', content: work});
     }
   };
@@ -202,10 +205,8 @@ export class EventController {
     try {
       const _id = req.params._idEvent;
       const Event = await EventModel.findById({_id: _id});
-      Event.posts.push(req.body);
-      await Event.save();
-      const updatedEvent = await EventModel.findById({_id: _id});
-      res.status(200).json({state: 'success', content: updatedEvent.works});
+      const work = await Event.works.create(req.body);
+      res.status(200).json({state: 'success', content: work});
     } catch (e) {
       res.status(500).json({state: 'error', error: e});
     }
@@ -215,15 +216,17 @@ export class EventController {
     // get Id of Event
     const _id = req.params._idEvent;
     // check exist
-    const Event = await EventModel.findById({_id_: _id});
+    const Event = await EventModel.findById({_id: _id});
     // process result
     if (!Event) {
       // fail to update
       res.status(500).json({state: 'error', error: 'Event not found'});
     }
     else {
-      const workIndex = Event.works.findIndex(work => work._id === req.body._id);
-      Event.works[workIndex] = req.body;
+      const works = Event.works;
+      const postUpdateIndex = works.findIndex(post => post._id = req.body._id);
+      works[postUpdateIndex] = req.body;
+      Event.works = works;
       // update code
       const result = await EventModel.findOneAndUpdate({_id: _id}, Event);
       // process update
@@ -234,8 +237,8 @@ export class EventController {
       else {
         // update successfully
         const UpdateEvent = await EventModel.findById({_id: _id});
-        const work = UpdateEvent.works.find(work => work._id === req.body._id);
-        res.json({state: 'success', content: work});
+        const post = await UpdateEvent.posts.id(req.body._id);
+        res.json({state: 'success', content: post});
       }
     }
 
@@ -245,21 +248,25 @@ export class EventController {
     // get id
     const _id = req.params._idEvent;
     // check exist
-    const Event = await EventModel.findById({_id_: _id});
+    const Event = await EventModel.findById({_id: _id});
     // process result
     if (!Event) {
       // fail to update
       res.status(500).json({state: 'error', error: 'Event not found'});
     }
     else {
-      const workIndex = Event.posts.findIndex(work => work._id === req.body._id);
-      Event.work.splice(workIndex, 1);
-      const updateEvent = await EventModel.findOneAndUpdate({_id: _id}, Event);
-      if (!updateEvent) {
-        res.status(500).json({state: 'error', error: 'Delete did not complete'});
+      if (await Event.works.id(req.body._id)) {
+        const post = await Event.posts.id(req.body._id).romove();
+        await Event.save();
+        if (!post) {
+          res.status(500).json({state: 'error', error: 'Delete did not complete'});
+        }
+        else {
+          res.status(200).json({state: 'success', content: req.body._id});
+        }
       }
       else {
-        res.status(200).json({state: 'success', content: req.body._id});
+        res.status(500).json({state: 'error', error: 'Can not find this work'});
       }
     }
   }

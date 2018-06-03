@@ -9,7 +9,7 @@ const TagSchema = new Schema({
     type: String,
     required: true
   },
-  parents: String
+  _idParents: String
 });
 
 // ----------------- define model ---------------------------------------------
