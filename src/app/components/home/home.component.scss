@@ -119,7 +119,7 @@
 .home .container .buttons .button:hover {
   border-color: yellow;
   color: yellow;
-  box-shadow: 0px 0px 5px yellow;
+  box-shadow: 0 0 5px yellow;
   transform: scale(1.05);
 }
 
@@ -147,6 +147,6 @@
   text-align: center;
   color: white;
   font-size: 24px;
-  font-family: 'Helvetica Neue-L';
+  font-family: 'Helvetica Neue-L', sans-serif;
   font-weight: lighter;
 }

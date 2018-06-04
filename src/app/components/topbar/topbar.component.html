@@ -3,12 +3,7 @@
     <div class="logo">
       <img src="../../../assets/images/Logo.png" width="50px" alt="">
     </div>
-<<<<<<< HEAD
     <div [ngClass]="{'menu-container':isShow,'menu-container-responsive':!isShow}" [ngStyle]="{'right' : rightPos}" id="menu-container" #menuContainerRes>
-=======
-    <div [ngClass]="{'menu-container':isShow,'menu-container-responsive':!isShow}" [ngStyle]="{'right' : rightPos}"
-         id="menu-container" #menuContainerRes>
->>>>>>> origin
       <ng-container *ngFor="let menu of menuList">
         <div [ngClass]="{'menu':isShow,'menu-responsive':!isShow}">{{menu}}</div>
       </ng-container>

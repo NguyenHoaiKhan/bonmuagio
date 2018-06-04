@@ -5,67 +5,29 @@
       <table>
         <tr>
           <td>Năm 2018</td>
-          <td>Tháng 5</td>
+          <td>Tháng 7</td>
         </tr>
       </table>
     </div>
-
-
     <div class="calendar-content">
       <table>
         <tr>
+          <td>Sun</td>
           <td>Mon</td>
           <td>Tue</td>
           <td>Wed</td>
           <td>Thu</td>
           <td>Fri</td>
           <td>Sat</td>
-          <td>Sun</td>
         </tr>
-        <tr>
-          <td>1</td>
-          <td>2</td>
-          <td>3</td>
-          <td>4</td>
-          <td>5</td>
-          <td>6</td>
-          <td>7</td>
-        </tr>
-        <tr>
-          <td>8</td>
-          <td>9</td>
-          <td>10</td>
-          <td>11</td>
-          <td>12</td>
-          <td>13</td>
-          <td>14</td>
-        </tr>
-        <tr>
-          <td>15</td>
-          <td>16</td>
-          <td>17</td>
-          <td class="event">18</td>
-          <td class="event">19</td>
-          <td>20</td>
-          <td>21</td>
-        </tr>
-        <tr>
-          <td>22</td>
-          <td>23</td>
-          <td>24</td>
-          <td>25</td>
-          <td>26</td>
-          <td>27</td>
-          <td>28</td>
-        </tr>
-        <tr>
-          <td>29</td>
-          <td>30</td>
-          <td>31</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+        <tr *ngFor="let day  of [0,7,14,21,28]">
+          <td>{{days[day]}}</td>
+          <td>{{days[day+1]}}</td>
+          <td>{{days[day+2]}}</td>
+          <td>{{days[day+3]}}</td>
+          <td>{{days[day+4]}}</td>
+          <td>{{days[day+5]}}</td>
+          <td>{{days[day+6]}}</td>
         </tr>
       </table>
     </div>

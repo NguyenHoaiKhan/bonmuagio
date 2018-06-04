@@ -22,11 +22,7 @@ body {
   right: 0;
   height: 70px;
   width: 100vw;
-<<<<<<< HEAD
-  margin: 0px auto;
-=======
   margin: 0 auto;
->>>>>>> origin
   background-color: #f47b60;
   position: fixed;
   z-index: 1;
@@ -34,11 +30,7 @@ body {
 }
 
 .top-bar .container {
-<<<<<<< HEAD
-  margin: 0px auto;
-=======
   margin: 0 auto;
->>>>>>> origin
   position: relative;
   height: 100%;
 }
@@ -166,7 +158,6 @@ body {
 */
 
 .top-bar .menu-container-responsive{
-<<<<<<< HEAD
 	position: fixed;
 	height: 100%;
 	width: 30vw;
@@ -197,35 +188,4 @@ body {
 	background-color: #f47b60;
 	color: white;
 	padding-right: 30px;
-=======
-  position: fixed;
-  height: 100%;
-  width: 200px;
-  background-color: rgb(228, 228, 228);
-  padding-top: 10px;
-  padding-bottom: 10px;
-  top: 70px;
-  right: -200px;
-  transition: 0.3s;
-}
-
-.top-bar .menu-container-responsive .menu-responsive{
-  display: block;
-  font-size: 20px;
-  font-weight: bold;
-  padding-left: 20px;
-  padding-right: 20px;
-  color: #f47b60;
-  cursor: pointer;
-  line-height: 35px;
-  transition: 0.3s;
-  text-align: right;
-  border-bottom: 1px solid #f47b60;
-}
-
-.top-bar .menu-container-responsive .menu-responsive:hover{
-  background-color: #f47b60;
-  color: white;
-  padding-right: 30px;
->>>>>>> origin
 }
