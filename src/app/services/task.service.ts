@@ -10,11 +10,11 @@ const Header = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
   providedIn: 'root'
 })
 export class TaskService {
-  getAllURL: string = '/api/task/getAll';
-  getByIdURL: string = '/api/task/getById';
-  addURL: string = '/api/task/add';
-  updateURL: string = '/api/task/update';
-  deleteURL: string = '/api/task/delete';
+  protected getAllURL: string = '/api/task/getAll';
+  protected getByIdURL: string = '/api/task/getById';
+  protected addURL: string = '/api/task/add';
+  protected updateURL: string = '/api/task/update';
+  protected deleteURL: string = '/api/task/delete';
 
   constructor(private http: HttpClient,
               @Optional() @Inject(APP_BASE_HREF) origin: string) {

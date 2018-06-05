@@ -10,11 +10,11 @@ const Header = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
   providedIn: 'root'
 })
 export class DonateService {
-  getAllURL: string = '/api/donate/getAll';
-  getByIdURL: string = '/api/donate/getById';
-  addURL: string = '/api/donate/add';
-  updateURL: string = '/api/donate/update';
-  deleteURL: string = '/api/donate/delete';
+  protected getAllURL: string = '/api/donate/getAll';
+  protected getByIdURL: string = '/api/donate/getById';
+  protected addURL: string = '/api/donate/add';
+  protected updateURL: string = '/api/donate/update';
+  protected deleteURL: string = '/api/donate/delete';
 
   constructor(private http: HttpClient,
               @Optional() @Inject(APP_BASE_HREF) origin: string) {

@@ -7,6 +7,7 @@ import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+<<<<<<< HEAD
 
   @ViewChild('homePosts') homePosts: ElementRef;
   protected homePostsOffset;
@@ -34,6 +35,27 @@ export class HomeComponent implements OnInit {
 
   constructor(public el: ElementRef) {
 
+=======
+  constructor(private userService: EventService) {
+    userService.getAll().subscribe(users => console.log(users));
+    userService.getById({_id: '5b0ef89a73434c0c4840899c'}).subscribe(user => console.log(user));
+    console.log(this.dayOfWeek);
+    console.log(this.numberOfDays);
+    this.setArrayofCanlendar();
+  }
+
+  days: string[] = [];
+  dayOfWeek: number = new Date('6/1/2018').getDay();
+  numberOfDays: number = new Date(2018, 6, 0).getDate();
+
+  setArrayofCanlendar() {
+    for (let i = 1; i <= 35; i++) if (i <= this.dayOfWeek || i > this.numberOfDays + this.dayOfWeek) {
+      this.days.push(' ');
+    }
+    else {
+      this.days.push(`${i - this.dayOfWeek }`)
+    }
+>>>>>>> d35bf959317bee224be4935a34e1d469605c44a3
   }
   ngOnInit() {
     this.homePostsOffset = this.homePosts.nativeElement.offsetTop;

@@ -1,0 +1,10 @@
+{
+  "mongoAccount": {
+    "username": "hoaikhan",
+    "password": "123456"
+  },
+  "JWT": {
+    "SECRET_KEY": "BMGAuth"
+  },
+  "cookieSecret": "asdfasdfaasdf"
+}

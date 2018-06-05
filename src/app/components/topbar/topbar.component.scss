@@ -22,7 +22,12 @@ body {
   right: 0;
   height: 70px;
   width: 100vw;
+<<<<<<< HEAD
   margin: 0px auto;
+=======
+  margin: 0 auto;
+  background-color: #f47b60;
+>>>>>>> d35bf959317bee224be4935a34e1d469605c44a3
   position: fixed;
   z-index: 1;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
@@ -30,7 +35,11 @@ body {
 }
 
 .top-bar .container {
+<<<<<<< HEAD
   margin: 0px auto;
+=======
+  margin: 0 auto;
+>>>>>>> d35bf959317bee224be4935a34e1d469605c44a3
   position: relative;
   height: 100%;
 }

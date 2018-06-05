@@ -13,7 +13,7 @@ const conf = new Config();
 // JWT Strategy
 passport.use(new Strategy({
   jwtFromRequest: ExtractJwt.fromHeader('authorization'),
-  secretOrKey: conf.getSecretKey()
+  secretOrKey: Config.getSecretKey()
 }, async (payload, done) => {
   try {
     const user = await UserModel.findById({_id: payload.sub});

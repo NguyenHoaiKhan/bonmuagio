@@ -15,11 +15,16 @@ UserRouter.route('/signIn').post(local, UserController.signIn);
 // ------------------------ SIGN UP --------------------------------------------
 UserRouter.route('/signUp').post(UserController.signUp);
 
+// ------------------------ Sign out --------------------------------------------
+UserRouter.route('/signOut').post(UserController.signOut);
+
+
 // ------------------------ SECRET --------------------------------------------
 UserRouter.route('/secret').post(jwt, UserController.secret);
 
 // ------------------------ CHANGE PASSWORD --------------------------------------------
 UserRouter.route('/changePassword').put(UserController.changePassword);
+
 
 // ------------------------ GET ALL ACCOUNT --------------------------------------------
 UserRouter.route('/getAll').post(UserController.getAll);

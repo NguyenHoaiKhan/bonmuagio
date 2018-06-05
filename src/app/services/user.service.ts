@@ -22,6 +22,7 @@ export class UserService {
   // ------------------------------------ URL ----------------------------------------------------------
   protected signInURL: string = '/api/user/signIn';
   protected signUpURL: string = '/api/user/signUp';
+  protected signOutURL: string = '/api/user/signOut';
   protected secretURL: string = '/api/user/secret';
   protected changePasswordURL: string = '/api/user/changePassword';
   protected getAllURL: string = '/api/user/getAll';
@@ -45,6 +46,11 @@ export class UserService {
   // ------------------------------------- sign in ----------------------------------------------------
   signIn(reqBody): Observable<any> {
     return this.http.post<any>(this.signInURL, reqBody, Header).pipe();
+  }
+
+  // ------------------------------------- sign out ----------------------------------------------------
+  signOut(): Observable<any> {
+    return this.http.post<any>(this.signOutURL, '', Header).pipe();
   }
 
   // -------------------------------------- sign up ----------------------------------------------------

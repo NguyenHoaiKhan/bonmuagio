@@ -1,3 +1,4 @@
+import {requireLogin} from '../middlewares';
 // import express-promise-router
 import express_promise_router from "express-promise-router";
 
@@ -13,13 +14,13 @@ DonateRouter.route('/getAll').post(DonateController.getAll);
 DonateRouter.route('/getById').post(DonateController.getById);
 
 // create an donate
-DonateRouter.route('/add').post(DonateController.add);
+DonateRouter.route('/add').post(requireLogin, DonateController.add);
 
 // update an donate
-DonateRouter.route('/update').put(DonateController.update);
+DonateRouter.route('/update').put(requireLogin, DonateController.update);
 
 // delete an donate
-DonateRouter.route('/delete/:_id').delete(DonateController.delete);
+DonateRouter.route('/delete/:_id').delete(requireLogin, DonateController.delete);
 
 export {DonateRouter};
 
