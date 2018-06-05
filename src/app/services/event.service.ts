@@ -11,18 +11,18 @@ const Header = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
 })
 export class EventService {
   // ------------------------ Event URL ------------------------------------------------------
-  getAllURL: string = '/api/event/getAll';
-  getByIdURL: string = '/api/event/getById';
-  addURL: string = '/api/event/add';
-  updateURL: string = '/api/event/update';
-  deleteURL: string = '/api/event/delete';
+  protected getAllURL: string = '/api/event/getAll';
+  protected getByIdURL: string = '/api/event/getById';
+  protected addURL: string = '/api/event/add';
+  protected updateURL: string = '/api/event/update';
+  protected deleteURL: string = '/api/event/delete';
 // -------------------------  Post URL ------------------------------------------------------
-  origin: string = '';
-  post_getAllURL: string;
-  post_getByIdURL: string;
-  post_addURL: string;
-  post_updateURL: string;
-  post_deleteURL: string;
+  protected origin: string = '';
+  protected post_getAllURL: string;
+  protected post_getByIdURL: string;
+  protected post_addURL: string;
+  protected post_updateURL: string;
+  protected post_deleteURL: string;
 
   constructor(private http: HttpClient,
               @Optional() @Inject(APP_BASE_HREF)  origin: string) {

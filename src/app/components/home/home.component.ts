@@ -16,8 +16,8 @@ export class HomeComponent implements OnInit {
   }
 
   days: string[] = [];
-  dayOfWeek: number = new Date('7/1/2018').getDay();
-  numberOfDays: number = new Date(2018, 7, 0).getDate();
+  dayOfWeek: number = new Date('6/1/2018').getDay();
+  numberOfDays: number = new Date(2018, 6, 0).getDate();
 
   setArrayofCanlendar() {
     for (let i = 1; i <= 35; i++) if (i <= this.dayOfWeek || i > this.numberOfDays + this.dayOfWeek) {

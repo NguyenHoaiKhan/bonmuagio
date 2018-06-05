@@ -10,7 +10,7 @@ function signToken(newUser) {
     sub: newUser.id,
     iat: (new Date().getTime()) / 1000,
     exp: (new Date().getTime() + 24 * 60 * 60 * 1000) / 1000
-  }, conf.getSecretKey());
+  }, Config.getSecretKey());
 }
 
 export class UserController {
@@ -31,6 +31,13 @@ export class UserController {
 
   }
 
+  static async signOut(req, res) {
+    const result = await req.session.destroy();
+    if (!result) {
+      res.status(500).json({state: 'error', error: 'Somethings went wrong'});
+    }
+    res.status(200).json({state: 'success', content: {message: 'See you next time'}});
+  }
   // ----------------------- sign up -----------------------------------------------------
   static async signUp(req, res) {
 
@@ -53,7 +60,8 @@ export class UserController {
 
   // ---------------------------------- get user data ------------------------------------------
   static async secret(req, res) {
-    res.json(req.user);
+    req.session.user = req.user;
+    res.status(200).json(req.user);
   }
 
   // --------------------------------- change password -----------------------------------------

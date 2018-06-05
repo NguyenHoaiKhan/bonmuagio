@@ -10,11 +10,11 @@ const Header = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
   providedIn: 'root'
 })
 export class ItemService {
-  getAllURL: string = '/api/item/getAll';
-  getByIdURL: string = '/api/item/getById';
-  addURL: string = '/api/item/add';
-  updateURL: string = '/api/item/update';
-  deleteURL: string = '/api/item/delete';
+  protected getAllURL: string = '/api/item/getAll';
+  protected getByIdURL: string = '/api/item/getById';
+  protected addURL: string = '/api/item/add';
+  protected updateURL: string = '/api/item/update';
+  protected deleteURL: string = '/api/item/delete';
 
   constructor(private http: HttpClient,
               @Optional() @Inject(APP_BASE_HREF) origin: string) {

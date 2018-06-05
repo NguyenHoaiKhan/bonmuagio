@@ -1,6 +1,5 @@
-const config = require("./config.json");
+const config = require("./ganeralConfig.json");
 
-const JWTconf = require("./JWTConfig.json");
 
 
 export class Config {
@@ -8,10 +7,14 @@ export class Config {
   }
 
   // get database connection
-  static getDBStr = `mongodb://${config.username}:${config.password}@ds016298.mlab.com:16298/bonmuagio`;
+  static getDBStr = `mongodb://${config.mongoAccount.username}:${config.mongoAccount.password}@ds016298.mlab.com:16298/bonmuagio`;
 
-  getSecretKey() {
-    return JWTconf.SECRET_KEY;
+  static getSecretKey() {
+    return config.JWT.SECRET_KEY;
+  }
+
+  static getCookieSerret() {
+    return config.cookieSecret;
   }
 
 
