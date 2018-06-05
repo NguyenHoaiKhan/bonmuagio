@@ -1,16 +1,11 @@
-<div class="top-bar" #parentsDiv>
+<div class="top-bar" #parentsDiv [ngStyle]="{'background': topBarColor}">
   <div class="container">
     <div class="logo">
-      <img src="../../../assets/images/Logo.png" width="50px" alt="">
+      <img src="../../../assets/images/logo-3.png" height="50px" alt="">
     </div>
-<<<<<<< HEAD
     <div [ngClass]="{'menu-container':isShow,'menu-container-responsive':!isShow}" [ngStyle]="{'right' : rightPos}" id="menu-container" #menuContainerRes>
-=======
-    <div [ngClass]="{'menu-container':isShow,'menu-container-responsive':!isShow}" [ngStyle]="{'right' : rightPos}"
-         id="menu-container" #menuContainerRes>
->>>>>>> origin
       <ng-container *ngFor="let menu of menuList">
-        <div [ngClass]="{'menu':isShow,'menu-responsive':!isShow}">{{menu}}</div>
+        <div [ngClass]="{'menu':isShow,'menu-responsive':!isShow}" (click)="menuClick(menu)" [class.menu-active]="menu === menuList[selectedMenuIndex]">{{menu}}</div>
       </ng-container>
     </div>
     <div [hidden]="isShow" class="menu-button" (click)="menuButtonClick()">

@@ -1,5 +1,5 @@
-<app-topbar></app-topbar>
-<div class="home">
+<app-topbar [topBarColor]="topBarColor"></app-topbar>
+<div class="home-top">
   <div class="container">
     <div class="calendar-top">
       <table>
@@ -77,5 +77,19 @@
 
     <h1 class="title">Trung Thu Yêu Thương 2018</h1>
     <p class="desc">Trường Tiểu học Tân Quới A, xã Tân Quới, huyện Bình Tân, tỉnh Vĩnh Long</p>
+  </div>
+</div>
+
+<div class="home-posts" #homePosts>
+  <div class="title">
+    <h1>Bài viết gần đây</h1>
+    <div class="seperate" style="width: 10%; margin-top: 0"></div>
+  </div>
+  <div class="container">
+      <app-post></app-post>
+      <div class="seperate"></div>
+      <app-post></app-post>
+      <div class="seperate"></div>
+      <app-post></app-post>
   </div>
 </div>

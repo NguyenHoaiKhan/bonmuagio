@@ -1,0 +1,119 @@
+/*
+ **************************************************************
+ *						POSTS
+ **************************************************************
+*/
+
+.post{
+	display: flex;
+	width: 100%;
+}
+
+.post .thumbnail{
+	width: 30%;
+}
+
+.post .thumbnail img{
+	width: 100%;
+	box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+.post .content{
+	padding: 30px;
+	padding-top: 0;
+}
+
+.post .content h2.title{
+	margin: 0;
+}
+
+.post .content p.desc{
+	color: gray;
+}
+
+.post .content .post-footer{
+}
+
+.post .content .post-footer div{
+	display: inline-block;
+	width: max-content;
+	margin-right: 10px;
+}
+
+.post .content .post-footer .author{
+	font-weight: bold;
+}
+
+.post .content .post-footer .tags{
+	margin-left: 20px;
+	width: max-content;
+}
+
+.post .content .post-footer span.tag{
+	font-size: 13px;
+	margin-right: 20px;
+	background: #1163b4;
+	color: white;
+	padding: 3px 6px;
+	border-radius: 3px;
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.post .content .post-footer span.tag:hover{
+	background: #5089c2;
+}
+
+.post .content .button{
+	padding: 7px 15px;
+	background: #ff0049;
+	width: max-content;
+	margin-top: 7px;
+	border-radius: 3px;
+	color: white;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.post .content .button:hover{
+	background: #ff4b7e;
+}
+
+/*
+ **************************************************************
+ *						POSTS REPONSIVE
+ **************************************************************
+*/
+
+@media screen and (max-width: 767px){
+	.post{
+		display: block;
+		width: 100%;
+	}
+	
+	.post .thumbnail{
+		width: 100%;
+	}
+	
+	.post .thumbnail img{
+		width: 100%;
+	}
+
+	.post .content{
+		margin: 10px 0 0;
+		padding: 0;
+	}
+
+	.post .content .post-footer div{
+		display: block;
+	}
+
+	.post .content .post-footer .tags{
+		margin: 0;
+	}
+
+	.post .content .post-footer .tag{
+		margin: 0;
+		display: inline-block;
+	}
+}

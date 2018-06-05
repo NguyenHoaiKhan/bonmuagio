@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {EventService} from '../../services/event.service';
+import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
+//import {EventService} from '../../services/event.service';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +8,38 @@ import {EventService} from '../../services/event.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private userService: EventService) {
-    userService.getAll().subscribe(users => console.log(users));
-    userService.getById({_id: '5b0ef89a73434c0c4840899c'}).subscribe(user => console.log(user));
+  @ViewChild('homePosts') homePosts: ElementRef;
+  protected homePostsOffset;
+  protected windowOffset;
+  protected lastYOffset;
+  protected topBarColor = 'transparent';
+
+  @HostListener("window:scroll", ['$event']) onWindowScroll() {
+    //we'll do some stuff here when the window is scrolled
+      let top = window.pageYOffset;
+      if (top > this.lastYOffset && top < this.homePostsOffset){
+        //Scroll down
+        let value = this.homePostsOffset - 70;
+        window.scroll(0, value);
+        this.lastYOffset = value;
+      }
+      this.lastYOffset = top;
+
+      if (top <= this.homePostsOffset - 140){
+        this.topBarColor = 'transparent';
+      }else{
+        this.topBarColor = '#06182a';
+      }
+  }
+
+  constructor(public el: ElementRef) {
+
   }
   ngOnInit() {
+    this.homePostsOffset = this.homePosts.nativeElement.offsetTop;
+    this.windowOffset = window.pageYOffset;
+    this.lastYOffset = this.windowOffset;
+    
   }
 
 }

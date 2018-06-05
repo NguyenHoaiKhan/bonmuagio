@@ -12,12 +12,14 @@ import { isPlatformBrowser } from '@angular/common';
 import { HomeComponent } from './components/home/home.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
 import {ClickOutsideModule} from 'ng-click-outside';
+import { PostComponent } from './components/post/post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    TopbarComponent
+    TopbarComponent,
+    PostComponent
   ],
   imports: [
     AppRoutingModule,
