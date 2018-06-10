@@ -30,7 +30,12 @@ const PostSchema = new Schema({
     required: true
   },
   images: [String],
-  tags: [String]
+  tags: [String],
+  state: {
+    type: String,
+    enum: ['private', 'protected', 'public'],
+    default: 'private'
+  }
 });
 // ------------------------- declare a EventSchema -------------------------------
 

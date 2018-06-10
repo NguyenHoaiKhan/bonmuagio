@@ -6,21 +6,16 @@ import {enableProdMode} from '@angular/core';
 
 import * as express from 'express';
 import {join} from "path";
-import {Config} from "./api/configs/index";
 
 import * as mongoose from "mongoose";
 
+
+//import Body-Parser
 import * as bodyParser from 'body-parser';
-
-import * as session from 'express-session';
-import * as MongoStore from 'connect-mongo';
-
-const mongoStore = MongoStore(session);
 
 
 mongoose.Promise = global.Promise;
-console.log(Config.getDBStr);
-mongoose.connect(Config.getDBStr, () => {
+mongoose.connect('mongodb://hoaikhan:123456@ds016298.mlab.com:16298/bonmuagio', () => {
   console.log('sussess!');
 });
 
@@ -73,21 +68,6 @@ app.get('*.*', express.static(join(DIST_FOLDER, 'server')));
 app.get('*', (req, res) => {
   res.render('index', {req});
 });
-
-app.use(
-  session({
-    cookie: {
-      maxAge: 30 * 24 * 60 * 60 * 1000
-    },
-    secret: Config.getCookieSerret(),
-    resave: false,
-    saveUninitialized: false,
-    store: new mongoStore({
-      mongooseConnection: mongoose.connection,
-      collection: 'session'
-    })
-  })
-);
 
 // ------------------ Import Router --------------------------------------------------
 import {UserRouter} from "./api/Routes/UserRoute"

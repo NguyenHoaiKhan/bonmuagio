@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   protected homePostsOffset;
   protected windowOffset;
   protected lastYOffset;
-  protected topBarColor = 'transparent';
+  topBarColor = 'transparent';
 
   @HostListener("window:scroll", ['$event']) onWindowScroll() {
     //we'll do some stuff here when the window is scrolled
@@ -58,10 +58,11 @@ export class HomeComponent implements OnInit {
 >>>>>>> d35bf959317bee224be4935a34e1d469605c44a3
   }
   ngOnInit() {
-    this.homePostsOffset = this.homePosts.nativeElement.offsetTop;
-    this.windowOffset = window.pageYOffset;
-    this.lastYOffset = this.windowOffset;
-    
+    //this.homePostsOffset = this.homePosts.nativeElement.offsetTop;
+    /*this.windowOffset = window.pageYOffset;
+    console.log(this.homePostsOffset);
+    this.lastYOffset = this.windowOffset;*/
+
   }
 
 }
